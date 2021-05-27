@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:split_it/modules/login/widgets/social_button.dart';
 import 'package:split_it/theme/app_theme.dart';
 
@@ -68,14 +69,29 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 12,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
-                child: SocialButtonWidget(
-                  imagePath: "assets/images/apple.png",
-                  label: "Entrar com Apple",
-                  onTap: () {},
-                ),
-              ),
+              //TODO NEEDS TO DO THE APPLE CONFIGURATION
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 32),
+              //   child: SocialButtonWidget(
+              //     imagePath: "assets/images/apple.png",
+              //     label: "Entrar com Apple",
+              //     onTap: () async {
+              //       try {
+              //         final credential =
+              //             await SignInWithApple.getAppleIDCredential(
+              //           scopes: [
+              //             AppleIDAuthorizationScopes.email,
+              //             AppleIDAuthorizationScopes.fullName,
+              //           ],
+              //         );
+
+              //         print(credential);
+              //       } catch (e) {
+              //         print(e);
+              //       }
+              //     },
+              //   ),
+              // ),
             ],
           ),
         ],
