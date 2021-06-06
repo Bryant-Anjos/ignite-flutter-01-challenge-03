@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'app_theme.dart';
@@ -14,6 +15,9 @@ abstract class AppTextStyles {
   TextStyle get eventTileSubitle;
   TextStyle get eventTileMoney;
   TextStyle get eventTilePeople;
+  TextStyle get stepperIndicatorPrimary;
+  TextStyle get stepperIndicatorSecondary;
+  TextStyle get stepperNextbutton;
 }
 
 class AppTextStylesDefault implements AppTextStyles {
@@ -85,5 +89,26 @@ class AppTextStylesDefault implements AppTextStyles {
         color: AppTheme.colors.eventTilePeople,
         fontSize: 12,
         fontWeight: FontWeight.w400,
+      );
+
+  @SemanticsHintOverrides()
+  TextStyle get stepperIndicatorPrimary => GoogleFonts.inter(
+        color: AppTheme.colors.stepperIndicatorPrimary,
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+      );
+
+  @override
+  TextStyle get stepperIndicatorSecondary => GoogleFonts.inter(
+        color: AppTheme.colors.stepperIndicatorSecondary,
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      );
+
+  @override
+  TextStyle get stepperNextbutton => GoogleFonts.inter(
+        color: AppTheme.colors.stepperNextButton,
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
       );
 }
