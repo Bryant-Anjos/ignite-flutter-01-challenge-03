@@ -13,21 +13,18 @@ class HomeController {
     this.repository = repository ?? HomeRepositoryMock();
   }
 
-  Future<void> getEvents(VoidCallback onUpdate) async {
-    state = HomeStateLoading();
-    update();
+  Future<void> getEvents() async {
+    update(HomeStateLoading());
     try {
       final response = await repository.getEvents();
-      state = HomeStateSuccess(events: response);
-      update();
+      update(HomeStateSuccess(events: response));
     } catch (e) {
-      state = HomeStateFailure(message: e.toString());
-      update();
+      update(HomeStateFailure(message: e.toString()));
     }
-    onUpdate();
   }
 
-  void update() {
+  void update(HomeState state) {
+    this.state = state;
     if (onListen != null) {
       onListen!(state);
     }

@@ -28,7 +28,7 @@ void main() {
       ),
     );
 
-    await controller.getDashboard(() {});
+    await controller.getDashboard();
 
     expect(states[0], isInstanceOf<AppBarStateLoading>());
     expect(states[1], isInstanceOf<AppBarStateSuccess>());
@@ -42,7 +42,7 @@ void main() {
     controller.listen((state) => states.add(state));
 
     when(repository.getDashboard).thenThrow("An error ocurred");
-    await controller.getDashboard(() {});
+    await controller.getDashboard();
 
     expect(states[0], isInstanceOf<AppBarStateLoading>());
     expect(states[1], isInstanceOf<AppBarStateFailure>());

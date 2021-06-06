@@ -32,7 +32,7 @@ void main() {
       ],
     );
 
-    await controller.getEvents(() {});
+    await controller.getEvents();
 
     expect(states[0], isInstanceOf<HomeStateLoading>());
     expect(states[1], isInstanceOf<HomeStateSuccess>());
@@ -46,7 +46,7 @@ void main() {
     controller.listen((state) => states.add(state));
 
     when(repository.getEvents).thenThrow("An error ocurred");
-    await controller.getEvents(() {});
+    await controller.getEvents();
 
     expect(states[0], isInstanceOf<HomeStateLoading>());
     expect(states[1], isInstanceOf<HomeStateFailure>());
