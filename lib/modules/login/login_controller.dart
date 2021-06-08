@@ -6,15 +6,17 @@ part 'login_controller.g.dart';
 
 class LoginController = _LoginControllerBase with _$LoginController;
 
-class _LoginControllerBase with Store {
+abstract class _LoginControllerBase with Store {
   final LoginService service;
 
   _LoginControllerBase({
     required this.service,
   });
 
+  @observable
   LoginState state = LoginStateEmpty();
 
+  @action
   Future<void> googleSignIn() async {
     try {
       state = LoginStateLoading();
